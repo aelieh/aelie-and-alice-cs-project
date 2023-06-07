@@ -60,5 +60,45 @@ public class TicTacToeGame implements Serializable {
             currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
         }
     }
-=======
->>>>>>> 4fb26bab6b20b3f2cc1531859d984d9bd7226b59
+
+private boolean checkWin() {
+        int[][] winConditions = {
+                {1, 2, 3}, {4, 5, 6}, {7, 8, 9}, // Rows
+                {1, 4, 7}, {2, 5, 8}, {3, 6, 9}, // Columns
+                {1, 5, 9}, {3, 5, 7} // Diagonals
+        };
+
+        for (int[] condition : winConditions) {
+            if (board.get(condition[0]) == currentPlayer &&
+                    board.get(condition[1]) == currentPlayer &&
+                    board.get(condition[2]) == currentPlayer) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean isBoardFull() {
+        for (char value : board.values()) {
+            if (value == ' ') {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void drawBoard() {
+        System.out.println("-------------");
+        for (int i = 1; i <= 9; i += 3) {
+            System.out.println("| " + board.get(i) + " | " + board.get(i + 1) + " | " + board.get(i + 2) + " |");
+            System.out.println("-------------");
+        }
+    }
+
+    public static void main(String[] args) {
+        TicTacToeGame game = new TicTacToeGame();
+        game.playGame();
+    }
+}
