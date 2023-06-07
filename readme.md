@@ -29,7 +29,7 @@ public class TicTacToeGame implements Serializable {
                 makeMove(position);
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input! Please enter a number between 1 and 9.");
-                scanner.nextLine(); // Clear input buffer
+                scanner.nextLine(); 
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -62,7 +62,7 @@ public class TicTacToeGame implements Serializable {
 
 private boolean checkWin() {
         int[][] winConditions = {
-                {1, 2, 3}, {4, 5, 6}, {7, 8, 9}, // Rows
+                {1, 2, 3}, {4, 5, 6}, {7, 8, 9}, // rows
                 {1, 4, 7}, {2, 5, 8}, {3, 6, 9}, // Columns
                 {1, 5, 9}, {3, 5, 7} // Diagonals
         };
